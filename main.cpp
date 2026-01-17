@@ -13,7 +13,7 @@ int nave_mas_productiva(int granja[][30],int cant_naves){
 			nave=i+1;
 		}
 	}
-	return nave;
+	return nave+1;
 }
 
 string total_promedio(int granja[][30],int cant_naves){
@@ -107,7 +107,7 @@ int produccion_x_granja(int granja[][30],int cant_naves){
 	cout<<"Que nave desea analizar?"<<endl;
 	cin>>nave;
 	for(int i=0;i<30;i++){
-		cout<<"La produccion de la nave "<<nave<<" el dia "<<i<<" fue "<<granja[nave][i];
+		cout<<"La produccion de la nave "<<nave+1<<" el dia "<<i+1<<" fue "<<granja[nave][i];
 	}
 }
 
