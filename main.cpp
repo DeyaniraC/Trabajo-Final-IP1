@@ -111,6 +111,25 @@ int produccion_x_granja(int granja[][30],int cant_naves){
 	}
 }
 
+void eliminarNavesImproductivas(int granja[][30], int cant_naves) {
+    for (int i = 0; i < cant_naves; ++i) {
+        int diasBajos = 0;
+        for (int j = 0; j < 30; ++j) {
+            if (granja[i][j] <= 150) {
+                diasBajos++;
+            }
+        }
+
+        if (diasBajos >= 3) {
+            cout << "La nave " << i + 1 << " ha sido eliminada por improductiva." << endl;
+
+            for (int j = 0; j < 30; ++j) {
+                granja[i][j] = 0;
+            }
+        }
+    }
+}
+
 
 int main() {
 	int cant_naves=0, nave=0, opcion=-1;
@@ -124,6 +143,9 @@ int main() {
 			cin>>granja[i][j];
 		}
 	}
+	
+	eliminarNavesImproductivas(granja, cant_naves);
+	
 	while(opcion!=0){
 	
 	cout<<"Que desea realizar? \n 1)Concocer la nave mas productiva \n 2)saber el promedio general y el total de la produccion del dia 6 \n 3)Concer gastos y ganancias \n 30)Conocer la nave mas y menos productora \n 5)Conocer la quincena mas productiva de una nave dada \n 6)Conocer la cantidad de toneladas de pienso utilizadas \n 7)Conocer el dia menos productivo \n 8)Conocer la produccion de una nave todo el mes 0)Salir"<<endl;
@@ -154,6 +176,7 @@ int main() {
 	else if(opcion==8){
 		produccion_x_granja(granja,cant_naves);
 	}
+	
 }
 	return 0;
 }
